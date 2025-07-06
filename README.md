@@ -3,7 +3,6 @@ A simple and intuitive web application to help users track their personal financ
 
 🚀 Live Demo
 🔗 https://personal-finance-visualizer-cyan-three.vercel.app/
-📂 GitHub Repository
 
 🧩 Features
 ✅ Stage 1 – Basic Transaction Tracking
