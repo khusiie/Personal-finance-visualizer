@@ -28,19 +28,7 @@ export default function TransactionsPage() {
       <Navbar />
 
       <div className="p-4 sm:p-8 max-w-7xl mx-auto flex flex-col gap-8">
-        {/* Month Selector */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <label htmlFor="month" className="font-semibold text-gray-700">
-            Select Month:
-          </label>
-          <input
-            id="month"
-            type="month"
-            value={month}
-            onChange={e => setMonth(e.target.value)}
-            className="border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-          />
-        </div>
+      
 
         {/* Add Transaction Form */}
         <section
