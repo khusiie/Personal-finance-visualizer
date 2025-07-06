@@ -15,7 +15,7 @@ export default function SummaryCards({ transactions }) {
     .slice(0, 5);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 items-stretch">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 items-stretch w-full">
       {/* Total Expenses */}
       <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-xl shadow-lg p-6 flex flex-col justify-center items-center h-[300px]">
         <h3 className="text-xl font-bold mb-2 tracking-wide uppercase text-center">

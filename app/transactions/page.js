@@ -19,38 +19,63 @@ export default function TransactionsPage() {
     fetchTransactions();
   }, []);
 
-  const filteredTransactions = transactions.filter(txn => txn.date?.startsWith(month));
+  const filteredTransactions = transactions.filter(txn =>
+    txn.date?.startsWith(month)
+  );
 
   return (
-    <main className="min-h-screen p-4 bg-blend-lighten ml-56 max-w-7xl mx-auto">
+    <main className="min-h-screen bg-gray-50 sm:ml-56">
       <Navbar />
 
-      {/* Add Transaction Form */}
-      <section id="add-transaction" className="bg-white rounded-md shadow p-6 mb-6">
-        <TransactionForm
-          transaction={editingTxn}
-          onAdd={txn => setTransactions(prev => [...prev, txn])}
-          onEdit={updated => setTransactions(prev => prev.map(t => t._id === updated._id ? updated : t))}
-          onDelete={async (id) => {
-            await fetch(`/api/transactions/${id}`, { method: 'DELETE' });
-            setTransactions(prev => prev.filter(t => t._id !== id));
-          }}
-          onCancel={() => setEditingTxn(null)}
-        />
-      </section>
+      <div className="p-4 sm:p-8 max-w-7xl mx-auto flex flex-col gap-8">
+        {/* Month Selector */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <label htmlFor="month" className="font-semibold text-gray-700">
+            Select Month:
+          </label>
+          <input
+            id="month"
+            type="month"
+            value={month}
+            onChange={e => setMonth(e.target.value)}
+            className="border border-gray-300 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+          />
+        </div>
 
-      {/* Transactions List */}
-      <section className="bg-white rounded-md shadow p-6 overflow-auto max-h-[70vh]">
-        <h2 className="text-xl font-bold mb-4">Transactions</h2>
-        <TransactionList
-          transactions={filteredTransactions}
-          onEdit={setEditingTxn}
-          onDelete={async (id) => {
-            await fetch(`/api/transactions/${id}`, { method: 'DELETE' });
-            setTransactions(prev => prev.filter(t => t._id !== id));
-          }}
-        />
-      </section>
+        {/* Add Transaction Form */}
+        <section
+          id="add-transaction"
+          className="bg-white rounded-md shadow p-6"
+        >
+          <TransactionForm
+            transaction={editingTxn}
+            onAdd={txn => setTransactions(prev => [...prev, txn])}
+            onEdit={updated =>
+              setTransactions(prev =>
+                prev.map(t => (t._id === updated._id ? updated : t))
+              )
+            }
+            onDelete={async id => {
+              await fetch(`/api/transactions/${id}`, { method: 'DELETE' });
+              setTransactions(prev => prev.filter(t => t._id !== id));
+            }}
+            onCancel={() => setEditingTxn(null)}
+          />
+        </section>
+
+        {/* Transactions List */}
+        <section className="bg-white rounded-md shadow p-6 overflow-auto max-h-[70vh]">
+          <h2 className="text-xl font-bold mb-4">Transactions</h2>
+          <TransactionList
+            transactions={filteredTransactions}
+            onEdit={setEditingTxn}
+            onDelete={async id => {
+              await fetch(`/api/transactions/${id}`, { method: 'DELETE' });
+              setTransactions(prev => prev.filter(t => t._id !== id));
+            }}
+          />
+        </section>
+      </div>
     </main>
   );
 }
