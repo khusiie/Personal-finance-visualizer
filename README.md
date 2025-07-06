@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+💰 Personal Finance Visualizer
+A simple and intuitive web application to help users track their personal finances — built with Next.js, React, shadcn/ui, Recharts, and MongoDB.
 
-## Getting Started
+🚀 Live Demo
+🔗 View Deployed App
+📂 GitHub Repository
 
-First, run the development server:
+🧩 Features
+✅ Stage 1 – Basic Transaction Tracking
+Add, edit, and delete transactions
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
+View all transactions in a list
+
+Monthly expenses bar chart
+
+Basic form validation and error handling
+
+✅ Stage 2 – Categories
+Predefined categories for transactions (e.g., Food, Transport, Rent)
+
+Category-wise expense pie chart
+
+Dashboard with:
+
+💸 Total expenses
+
+📊 Category breakdown
+
+🕒 Most recent transactions
+
+✅ Stage 3 – Budgeting
+Set monthly budgets per category
+
+Budget vs actual comparison bar chart
+
+Simple spending insights based on monthly limits
+
+🛠️ Tech Stack
+Frontend: Next.js (App Router), React, Tailwind CSS, shadcn/ui
+
+Charts: Recharts
+
+Backend: API Routes in Next.js
+
+Database: MongoDB (via Mongoose)
+
+📁 Project Structure
+bash
+Copy
+Edit
+app/
+├── page.js               # Homepage - Dashboard and Charts
+├── budget/               # Budgeting features
+├── api/transactions/     # API routes for transaction CRUD
+├── api/budgets/          # API routes for budgets
+components/
+├── TransactionForm.js
+├── TransactionList.js
+├── CategoryPieChart.js
+├── MonthlyBarChart.js
+├── SummaryCards.js
+├── BudgetForm.js
+├── BudgetList.js
+├── BudgetComparisonChart.js
+lib/
+├── dbConnect.js          # MongoDB connection utility
+📦 Setup Instructions
+1. Clone the repository
+bash
+Copy
+Edit
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+2. Install dependencies
+bash
+Copy
+Edit
+pnpm install
+3. Add .env.local
+env
+Copy
+Edit
+MONGODB_URI=your_mongodb_connection_string
+4. Run the app locally
+bash
+Copy
+Edit
 pnpm dev
-# or
-bun dev
-```
+✅ Submission Checklist
+ All 3 stages implemented
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ Fully responsive design
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+ Code with modular components and clean architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ GitHub Repo with proper structure
 
-## Learn More
+ Deployed via Vercel
 
-To learn more about Next.js, take a look at the following resources:
+ No login/authentication implemented as per guidelines
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+📊 Evaluation Criteria
+Feature Implementation: ✅ 100% complete
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Code Quality: Modular, reusable, and well-structured
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+UI/UX Design: Clean, responsive, and intuitive
